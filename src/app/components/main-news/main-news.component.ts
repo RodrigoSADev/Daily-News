@@ -13,7 +13,6 @@ export class MainNewsComponent implements OnInit {
   newsService = inject(NewsService);
 
   mainNews = signal<INews[] | null>(null);
-  isFirst = signal<boolean>(true);
 
   ngOnInit(): void {
     this.newsService.getMainNews().subscribe((response) => {
