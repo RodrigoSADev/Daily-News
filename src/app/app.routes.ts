@@ -3,11 +3,11 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'inicio',
+    redirectTo: 'noticias',
     pathMatch: 'full',
   },
   {
-    path: 'inicio',
+    path: 'noticias',
     loadComponent: () =>
       import('./components/main-news/main-news.component').then(
         (c) => c.MainNewsComponent
