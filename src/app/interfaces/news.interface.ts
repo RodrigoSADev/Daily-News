@@ -6,5 +6,5 @@ export interface INews {
   date: string;
   author: string;
   category: string;
-  image: string;
+  alt: string;
 }
