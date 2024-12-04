@@ -1,0 +1,6 @@
+<button
+  (click)="toggleDarkMode()"
+  [ngClass]="isDarkMode ? 'btn btn-light' : 'btn btn-dark'"
+>
+  {{ isDarkMode ? "Modo Claro" : "Modo Escuro" }}
+</button>
