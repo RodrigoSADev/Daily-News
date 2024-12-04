@@ -20,11 +20,7 @@
         class="carousel-item"
         [ngClass]="{ active: mainNews()?.indexOf(mainNew) === 0 }"
       >
-        <img
-          src="images/main-new-{{ mainNew.id }}.jpg"
-          class="d-block w-100"
-          [alt]="mainNew.alt"
-        />
+        <img [src]="mainNew.image" class="d-block w-100" [alt]="mainNew.alt" />
         <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
           <h2>{{ mainNew.title }}</h2>
           <p>{{ mainNew.author }}</p>
