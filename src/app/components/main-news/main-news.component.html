@@ -1,6 +1,6 @@
 <section class="container">
   @if (mainNews()) {
-  <h1 class="text-center">Principais Notícias</h1>
+  <h1 class="text-center py-5">Principais Notícias</h1>
   <div id="carouselCaptions" class="carousel slide">
     <div class="carousel-indicators">
       @for (mainNew of mainNews(); track mainNew.id) {
@@ -60,3 +60,4 @@
   </div>
   }
 </section>
+<app-recent-news />
