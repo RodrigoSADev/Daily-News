@@ -1,6 +1,5 @@
-<section class="container">
+<section class="container mt-5">
   @if (mainNews()) {
-  <h1 class="text-center py-5">Principais Notícias</h1>
   <div id="carouselCaptions" class="carousel slide">
     <div class="carousel-indicators">
       @for (mainNew of mainNews(); track mainNew.id) {
@@ -23,8 +22,13 @@
         <img [src]="mainNew.image" class="d-block w-100" [alt]="mainNew.alt" />
         <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
           <h2>{{ mainNew.title }}</h2>
-          <p>{{ mainNew.author }}</p>
-          <button class="btn btn-primary">Saiba Mais</button>
+          <h6 class="m-0">
+            {{ mainNew.content }}
+          </h6>
+          <p>
+            <small>{{ mainNew.author }} </small>
+          </p>
+          <button class="btn btn-danger mb-2">Saiba Mais</button>
         </div>
       </div>
       }
