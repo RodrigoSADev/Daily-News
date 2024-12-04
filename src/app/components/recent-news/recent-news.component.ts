@@ -1,10 +1,11 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { INews } from '../../interfaces/news.interface';
 import { NewsService } from '../../services/news.service';
+import { WeatherComponent } from '../weather/weather.component';
 
 @Component({
   selector: 'app-recent-news',
-  imports: [],
+  imports: [WeatherComponent],
   templateUrl: './recent-news.component.html',
   styleUrl: './recent-news.component.scss',
 })
