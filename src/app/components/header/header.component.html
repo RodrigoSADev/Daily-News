@@ -2,16 +2,18 @@
   <nav class="navbar bg-body-tertiary p-3">
     <div class="container">
       <a class="navbar-brand fs-4">Daily News</a>
-      <button
-        class="btn btn-primary"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasRight"
-        aria-controls="offcanvasRight"
-      >
-        Menu
-      </button>
-
+      <div class="d-flex gap-3">
+        <app-theme-toggle />
+        <button
+          class="btn btn-primary"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight"
+        >
+          Menu
+        </button>
+      </div>
       <div
         class="offcanvas offcanvas-end"
         tabindex="-1"
