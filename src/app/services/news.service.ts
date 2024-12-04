@@ -15,6 +15,10 @@ export class NewsService {
     return this.http.get<INews[]>(`${this.API}/main-news`);
   }
 
+  getRecentNews(): Observable<INews[]> {
+    return this.http.get<INews[]>(`${this.API}/recent-news`);
+  }
+
   getVariedNews(): Observable<INews[]> {
     return this.http.get<INews[]>(`${this.API}/varied-news`);
   }
