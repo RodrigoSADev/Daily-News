@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar bg-body-tertiary p-3">
     <div class="container">
-      <a class="navbar-brand fs-4">Daily News</a>
+      <a routerLink="/" class="navbar-brand fs-4">Daily News</a>
       <div class="d-flex gap-3">
         <app-theme-toggle />
         <button
@@ -32,15 +32,13 @@
           ></button>
         </div>
         <div class="offcanvas-body">
-          <a routerLink="/" class="btn">Tecnologia</a>
+          <a routerLink="noticias/tecnologia" class="btn">Tecnologia</a>
           <hr />
-          <a routerLink="/" class="btn">Política</a>
+          <a routerLink="noticias/ciencia" class="btn">Ciência</a>
           <hr />
-          <a routerLink="/" class="btn">Esportes</a>
+          <a routerLink="noticias/politica" class="btn">Política</a>
           <hr />
-          <a routerLink="/" class="btn">Entretenimento</a>
-          <hr />
-          <a routerLink="/" class="btn">Meio Ambiente</a>
+          <a routerLink="noticias/esportes" class="btn">Esportes</a>
         </div>
       </div>
     </div>
