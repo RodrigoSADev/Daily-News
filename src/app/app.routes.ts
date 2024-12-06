@@ -13,4 +13,11 @@ export const routes: Routes = [
         (c) => c.MainNewsComponent
       ),
   },
+  {
+    path: 'noticias/:category',
+    loadComponent: () =>
+      import('./components/varied-news/varied-news.component').then(
+        (c) => c.VariedNewsComponent
+      ),
+  },
 ];
