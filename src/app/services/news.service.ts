@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { INews } from '../interfaces/news.interface';
 
 @Injectable({
@@ -19,7 +19,9 @@ export class NewsService {
     return this.http.get<INews[]>(`${this.API}/recent-news`);
   }
 
-  getVariedNews(): Observable<INews[]> {
-    return this.http.get<INews[]>(`${this.API}/varied-news`);
+  getVariedNewsByCategory(category: string): Observable<INews[]> {
+    return this.http
+      .get<INews[]>(`${this.API}/varied-news`)
+      .pipe(map((news) => news.filter((item) => item.category === category)));
   }
 }
