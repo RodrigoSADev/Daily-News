@@ -1,22 +1,22 @@
 <section class="container">
   <div class="row">
-    <div class="col-8">
-      @if (recentNews()) {
+    <div class="col-xl-8 col-lg-12">
+      @if (!hasError()) { @if (!isLoading()) {
       <h2 class="text-center pt-5 pb-3">Notícias Recentes</h2>
       @for (recentNew of recentNews(); track recentNew.id) {
-      <div class="card mb-3" style="max-width: 700px">
+      <div class="card mb-3">
         <div class="card-header">
           <h4 class="text-center my-2">{{ recentNew.title }}</h4>
         </div>
         <div class="row g-0">
-          <div class="col-md-4">
+          <div class="col-xl-4 col-lg-3">
             <img
               [src]="recentNew.image"
               class="img-fluid rounded-bottom"
               [alt]="recentNew.alt"
             />
           </div>
-          <div class="col-md-8">
+          <div class="col-xl-8 col-lg-9">
             <div class="card-body">
               <h5 class="card-text">{{ recentNew.subtitle }}</h5>
               <p class="card-text">
@@ -24,17 +24,60 @@
               </p>
               <p class="card-text">
                 <small class="text-body-secondary"
-                  >{{ recentNew.author }} - Há
-                  {{ recentNew.publishedAt }} atrás</small
+                  >Há {{ recentNew.publishedAt }} atrás -
+                  {{ recentNew.author }}</small
                 >
               </p>
             </div>
           </div>
         </div>
       </div>
-      } }
+      } } @else {
+      <div class="text-center pt-5 pb-3">
+        <h2 class="placeholder-glow">
+          <span class="placeholder col-6"></span>
+        </h2>
+      </div>
+      @for (item of [1, 2]; track item) {
+      <div class="card mb-3">
+        <div class="card-header">
+          <h4 class="card-title placeholder-glow"></h4>
+        </div>
+        <div class="row g-0">
+          <div class="col-xl-4 col-lg-3">
+            <div class="placeholder-glow">
+              <span
+                class="placeholder col-12"
+                style="height: 200px; display: block"
+              ></span>
+            </div>
+          </div>
+          <div class="col-xl-8 col-lg-9">
+            <div class="card-body">
+              <h5 class="card-title placeholder-glow">
+                <span class="placeholder col-11"></span>
+              </h5>
+              <p class="card-text placeholder-glow">
+                <span class="placeholder col-11"></span>
+                <span class="placeholder col-10"></span>
+                <span class="placeholder col-10"></span>
+              </p>
+              <p class="card-text placeholder-glow">
+                <small class="placeholder col-4"></small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      } } } @else {
+      <h2 class="text-center pt-5 pb-3">
+        Não foi possíver carregar as notícias recentes, por favor, tente
+        novamente mais tarde.
+      </h2>
+      }
     </div>
-    <div class="col-4">
+
+    <div class="col-xl-4 col-lg-12">
       <app-weather />
     </div>
   </div>

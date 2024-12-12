@@ -13,10 +13,19 @@ export class RecentNewsComponent implements OnInit {
   newsService = inject(NewsService);
 
   recentNews = signal<INews[] | null>(null);
+  isLoading = signal<boolean>(true);
+  hasError = signal<boolean>(false);
 
   ngOnInit(): void {
-    this.newsService.getRecentNews().subscribe((response) => {
-      this.recentNews.set(response);
+    this.newsService.getRecentNews().subscribe({
+      next: (response) => {
+        this.recentNews.set(response);
+        this.isLoading.set(false);
+      },
+      error: () => {
+        this.isLoading.set(false);
+        this.hasError.set(true);
+      },
     });
   }
 }
