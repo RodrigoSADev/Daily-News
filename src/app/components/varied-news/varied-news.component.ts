@@ -17,7 +17,8 @@ export class VariedNewsComponent implements OnInit {
 
   variedNews = signal<INews[] | null>(null);
   category = signal<string | null>(null);
-  isLoading = signal<boolean>(false);
+  isLoading = signal<boolean>(true);
+  hasError = signal<boolean>(false);
   categoryMap: { [key: string]: string } = {
     tecnologia: 'Tecnologia',
     politica: 'Política',
@@ -30,12 +31,16 @@ export class VariedNewsComponent implements OnInit {
       this.isLoading.set(true);
       const category = params.get('category')!;
       this.category.set(this.categoryMap[category] || category);
-      this.newsService
-        .getVariedNewsByCategory(category)
-        .subscribe((response) => {
+      this.newsService.getVariedNewsByCategory(category).subscribe({
+        next: (response) => {
           this.variedNews.set(response);
           this.isLoading.set(false);
-        });
+        },
+        error: () => {
+          this.isLoading.set(false);
+          this.hasError.set(true);
+        },
+      });
     });
   }
 }
