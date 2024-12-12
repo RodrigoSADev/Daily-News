@@ -1,11 +1,12 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { INews } from '../../interfaces/news.interface';
+import { ParagraphPipe } from '../../pipes/paragraph.pipe';
 import { NewsService } from '../../services/news.service';
 import { WeatherComponent } from '../weather/weather.component';
 
 @Component({
   selector: 'app-recent-news',
-  imports: [WeatherComponent],
+  imports: [WeatherComponent, ParagraphPipe],
   templateUrl: './recent-news.component.html',
   styleUrl: './recent-news.component.scss',
 })
