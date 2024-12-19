@@ -1,6 +1,10 @@
 <section class="container">
   @if (!hasError()) { @if (!isLoading()) {
-  <h2 class="text-center pt-5 pb-4 m-0 p-0">Notícias sobre {{ category() }}</h2>
+  <div class="d-flex align-items-center justify-content-between pt-5 pb-4">
+    <span></span>
+    <h2 class="text-center m-0 p-0">Notícias sobre {{ category() }}</h2>
+    <button routerLink="/" class="btn btn-secondary">Voltar</button>
+  </div>
   <div class="row">
     @for (variedNew of variedNews(); track variedNew.id) {
     <div class="col-xl-6 col-lg-12 mb-5">
@@ -37,10 +41,14 @@
     }
   </div>
   } @else {
-  <div class="text-center pt-5 pb-4">
-    <h2 class="placeholder-glow">
+  <div class="row pt-5 pb-4">
+    <h2 class="col-11 text-center placeholder-glow">
       <span class="placeholder col-6"></span>
     </h2>
+    <button
+      class="btn btn-secondary disabled placeholder col-1"
+      aria-disabled="true"
+    ></button>
   </div>
   <div class="row">
     @for (item of [1, 2, 3, 4]; track item) {

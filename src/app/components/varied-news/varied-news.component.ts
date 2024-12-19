@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { INews } from '../../interfaces/news.interface';
 import { ParagraphPipe } from '../../pipes/paragraph.pipe';
 import { NewsService } from '../../services/news.service';
 
 @Component({
   selector: 'app-varied-news',
-  imports: [CommonModule, ParagraphPipe],
+  imports: [CommonModule, ParagraphPipe, RouterLink],
   templateUrl: './varied-news.component.html',
   styleUrl: './varied-news.component.scss',
 })
