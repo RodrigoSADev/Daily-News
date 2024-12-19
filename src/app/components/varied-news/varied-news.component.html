@@ -1,6 +1,6 @@
 <section class="container">
   @if (!hasError()) { @if (!isLoading()) {
-  <h2 class="text-center pt-5 pb-3 m-0 p-0">Notícias sobre {{ category() }}</h2>
+  <h2 class="text-center pt-5 pb-4 m-0 p-0">Notícias sobre {{ category() }}</h2>
   <div class="row">
     @for (variedNew of variedNews(); track variedNew.id) {
     <div class="col-xl-6 col-lg-12 mb-5">
@@ -37,7 +37,7 @@
     }
   </div>
   } @else {
-  <div class="text-center pt-5 pb-3">
+  <div class="text-center pt-5 pb-4">
     <h2 class="placeholder-glow">
       <span class="placeholder col-6"></span>
     </h2>
