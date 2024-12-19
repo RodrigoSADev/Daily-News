@@ -1,4 +1,4 @@
-<section>
+<section class="mb-5">
   <h2 class="text-center pt-5 pb-3">Previsão do Tempo</h2>
   <div class="card">
     <div class="card-header">
@@ -21,13 +21,13 @@
             }"
           />
           <button
-            class="btn btn-outline-success"
+            class="btn btn-success"
             type="button"
             id="search-button"
             (click)="onSearch()"
             [disabled]="submitted()"
           >
-            Pesquisar
+            <i class="fs-5 bi bi-search"></i>
           </button>
         </div>
       </form>
