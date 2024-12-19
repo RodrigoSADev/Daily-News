@@ -2,5 +2,8 @@
   (click)="toggleDarkMode()"
   [ngClass]="isDarkMode ? 'btn btn-light' : 'btn btn-dark'"
 >
-  {{ isDarkMode ? "Modo Claro" : "Modo Escuro" }}
+  <i
+    class="fw-bold fs-5"
+    [ngClass]="isDarkMode ? 'bi bi-brightness-high' : 'bi bi-moon-stars'"
+  ></i>
 </button>
