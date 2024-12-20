@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { INews } from '../interfaces/news.interface';
+import { IMainNew, IRecentNew, IVariedNew } from '../interfaces/news.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -11,17 +11,21 @@ export class NewsService {
 
   private readonly API = 'https://daily-news-api-tau.vercel.app';
 
-  getMainNews(): Observable<INews[]> {
-    return this.http.get<INews[]>(`${this.API}/main-news`);
+  getMainNews(): Observable<IMainNew[]> {
+    return this.http.get<IMainNew[]>(`${this.API}/main-news`);
   }
 
-  getRecentNews(): Observable<INews[]> {
-    return this.http.get<INews[]>(`${this.API}/recent-news`);
+  getMainNewById(id: string): Observable<IMainNew> {
+    return this.http.get<IMainNew>(`${this.API}/main-news/${id}`);
   }
 
-  getVariedNewsByCategory(category: string): Observable<INews[]> {
+  getRecentNews(): Observable<IRecentNew[]> {
+    return this.http.get<IRecentNew[]>(`${this.API}/recent-news`);
+  }
+
+  getVariedNewsByCategory(category: string): Observable<IVariedNew[]> {
     return this.http
-      .get<INews[]>(`${this.API}/varied-news`)
+      .get<IVariedNew[]>(`${this.API}/varied-news`)
       .pipe(map((news) => news.filter((item) => item.category === category)));
   }
 }
