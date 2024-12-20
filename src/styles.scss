@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+.carousel-container .prev,
+.carousel-container .next {
+  background-color: #dc3545 !important;
+  padding: 1rem 0.5rem !important;
+}
+.bullet.current {
+  background-color: #dc3545 !important;
+}
+@media (max-width: 600px) {
+  .banner-container {
+    .prev,
+    .next {
+      display: none !important;
+    }
+  }
+}

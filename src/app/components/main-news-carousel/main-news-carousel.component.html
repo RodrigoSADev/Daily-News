@@ -1,0 +1,44 @@
+<section class="mt-5">
+  @if (mainNews()) {
+  <h1 class="text-center mt-5">Notícias Principais</h1>
+  <carousel
+    [slideMaxWidth]="2000"
+    [infinite]="true"
+    [responsive]="true"
+    [autoslideLimitPercentCard]="40"
+    [slideToScroll]="1"
+    [slideToShow]="1"
+    [counter]="false"
+    [responsive]="true"
+    [enableTouch]="true"
+    [enableMouseDrag]="true"
+  >
+    @for (mainNew of mainNews(); track mainNew.id) {
+    <div class="carousel-slide">
+      <div class="position-relative">
+        <img [src]="mainNew.image" class="d-block w-100" [alt]="mainNew.alt" />
+        <div
+          class="position-absolute bottom-0 start-50 translate-middle-x text-center carousel-container"
+        >
+          <div class="bg-dark bg-opacity-50">
+            <h2 class="text-white carousel-title-text">
+              {{ mainNew.title }}
+            </h2>
+            <h6 class="d-none d-md-block text-white m-0">
+              {{ mainNew.content }}
+            </h6>
+            <p class="text-white d-none d-md-block">
+              <small>Por {{ mainNew.author }} </small>
+            </p>
+            <button class="btn btn-danger mb-2 carousel-button">
+              Saiba Mais
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+  </carousel>
+  }
+</section>
+<app-recent-news />
