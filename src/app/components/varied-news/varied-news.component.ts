@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { INews } from '../../interfaces/news.interface';
+import { IVariedNew } from '../../interfaces/news.interface';
 import { ParagraphPipe } from '../../pipes/paragraph.pipe';
 import { NewsService } from '../../services/news.service';
 
@@ -15,7 +15,7 @@ export class VariedNewsComponent implements OnInit {
   newsService = inject(NewsService);
   actRoute = inject(ActivatedRoute);
 
-  variedNews = signal<INews[] | null>(null);
+  variedNews = signal<IVariedNew[] | null>(null);
   category = signal<string | null>(null);
   isLoading = signal<boolean>(true);
   hasError = signal<boolean>(false);

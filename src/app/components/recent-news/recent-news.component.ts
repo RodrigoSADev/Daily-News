@@ -1,5 +1,5 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { INews } from '../../interfaces/news.interface';
+import { IRecentNew } from '../../interfaces/news.interface';
 import { ParagraphPipe } from '../../pipes/paragraph.pipe';
 import { NewsService } from '../../services/news.service';
 import { WeatherComponent } from '../weather/weather.component';
@@ -13,7 +13,7 @@ import { WeatherComponent } from '../weather/weather.component';
 export class RecentNewsComponent implements OnInit {
   newsService = inject(NewsService);
 
-  recentNews = signal<INews[] | null>(null);
+  recentNews = signal<IRecentNew[] | null>(null);
   isLoading = signal<boolean>(true);
   hasError = signal<boolean>(false);
 

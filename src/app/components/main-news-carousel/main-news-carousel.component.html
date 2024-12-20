@@ -16,7 +16,11 @@
     @for (mainNew of mainNews(); track mainNew.id) {
     <div class="carousel-slide">
       <div class="position-relative">
-        <img [src]="mainNew.image" class="d-block w-100" [alt]="mainNew.alt" />
+        <img
+          [src]="mainNew.image[0]"
+          class="d-block w-100"
+          [alt]="mainNew.alt[0]"
+        />
         <div
           class="position-absolute bottom-0 start-50 translate-middle-x text-center carousel-container"
         >
@@ -30,7 +34,10 @@
             <p class="text-white d-none d-md-block">
               <small>Por {{ mainNew.author }} </small>
             </p>
-            <button class="btn btn-danger mb-2 carousel-button">
+            <button
+              routerLink="/noticia-principal/{{ mainNew.id }}"
+              class="btn btn-danger mb-2 carousel-button"
+            >
               Saiba Mais
             </button>
           </div>
