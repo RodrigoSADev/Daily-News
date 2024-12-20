@@ -9,9 +9,9 @@ export const routes: Routes = [
   {
     path: 'noticias',
     loadComponent: () =>
-      import('./components/main-news/main-news.component').then(
-        (c) => c.MainNewsComponent
-      ),
+      import(
+        './components/main-news-carousel/main-news-carousel.component'
+      ).then((c) => c.MainNewsCarouselComponent),
   },
   {
     path: 'noticias/:category',
