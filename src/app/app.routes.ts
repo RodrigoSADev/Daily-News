@@ -20,4 +20,11 @@ export const routes: Routes = [
         (c) => c.VariedNewsComponent
       ),
   },
+  {
+    path: 'noticia-principal/:id',
+    loadComponent: () =>
+      import('./components/main-new/main-new.component').then(
+        (c) => c.MainNewComponent
+      ),
+  },
 ];
