@@ -1,0 +1,101 @@
+<section class="container mt-4 mb-2">
+  @if (!hasError()) { @if (!isLoading()) {
+  <div class="d-flex align-items-center justify-content-between">
+    <span></span>
+    <h2 class="text-center m-0 text-wrap">{{ mainNew()?.title }}</h2>
+    <button routerLink="/" class="btn btn-secondary">Voltar</button>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-xl-6 col-lg-6 order-1 order-lg-1">
+      <img
+        [src]="mainNew()!.image[0]"
+        class="img-fluid rounded"
+        [alt]="mainNew()!.alt[0]"
+      />
+    </div>
+    <div class="col-xl-6 col-lg-6 order-2 order-lg-2">
+      <div class="full-content-paragraph">
+        <h5>{{ mainNew()!.subtitle[0] }}</h5>
+        <div
+          [innerHTML]="getFirstPart(mainNew()!.fullContent) | paragraph"
+        ></div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-xl-6 col-lg-6 order-4 order-lg-3">
+      <div class="full-content-paragraph">
+        <h5>{{ mainNew()!.subtitle[1] }}</h5>
+        <div
+          [innerHTML]="getSecondPart(mainNew()!.fullContent) | paragraph"
+        ></div>
+        <p>
+          <small class="text-body-secondary"
+            >{{ mainNew()?.date | date : "dd/MM/yyyy" }} -
+            {{ mainNew()?.author }}</small
+          >
+        </p>
+      </div>
+    </div>
+    <div class="col-xl-6 col-lg-6 order-3 order-lg-4">
+      <img
+        [src]="mainNew()!.image[1]"
+        class="img-fluid rounded"
+        [alt]="mainNew()!.alt[1]"
+      />
+    </div>
+  </div>
+  } @else {
+  <div class="row pt-5 pb-4">
+    <h2 class="col-11 text-center placeholder-glow">
+      <span class="placeholder col-6"></span>
+    </h2>
+    <button
+      class="btn btn-secondary disabled placeholder col-1"
+      aria-disabled="true"
+    ></button>
+  </div>
+  <div class="row">
+    <div class="col-xl-6 col-lg-6 order-1 order-lg-1">
+      <div class="placeholder-glow">
+        <span
+          class="placeholder col-12"
+          style="height: 400px; width: 400px; display: block"
+        ></span>
+      </div>
+    </div>
+    <div class="col-xl-6 col-lg-6 order-2 order-lg-2">
+      <div class="placeholder-glow full-content-paragraph">
+        @for (item of [1, 2, 3, 4]; track item) {
+        <h3 class="placeholder col-11"></h3>
+        <h3 class="placeholder col-10"></h3>
+        }
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-xl-6 col-lg-6 order-4 order-lg-3">
+      <div class="placeholder-glow full-content-paragraph">
+        @for (item of [1, 2, 3, 4]; track item) {
+        <h3 class="placeholder col-11"></h3>
+        <h3 class="placeholder col-10"></h3>
+        }
+      </div>
+    </div>
+    <div class="col-xl-6 col-lg-6 order-3 order-lg-4">
+      <div class="placeholder-glow">
+        <span
+          class="placeholder col-12"
+          style="height: 400px; width: 400px; display: block"
+        ></span>
+      </div>
+    </div>
+  </div>
+  } } @else {
+  <h2 class="text-center pt-5 pb-3">
+    Não foi possíver carregar a notícia principal, por favor, tente novamente
+    mais tarde.
+  </h2>
+  }
+</section>
