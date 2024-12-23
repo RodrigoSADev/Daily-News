@@ -22,10 +22,10 @@ jobs:
           node-version: "18"
 
       - name: Install Dependencies
-        run: npm install --legacy-peer-deps
+        run: pnpm install --legacy-peer-deps
 
       - name: Run Unit Tests (Jest)
-        run: npm test
+        run: pnpm test
 
   playwright-tests:
     runs-on: ubuntu-latest
@@ -74,11 +74,11 @@ jobs:
           node-version: "18"
 
       - name: Install Dependencies
-        run: npm install --legacy-peer-deps
+        run: pnpm install --legacy-peer-deps
 
       - name: Deploy to Vercel
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
-          npm install -g vercel
+          pnpm install -g vercel
           vercel deploy --prod --confirm --token $VERCEL_TOKEN
