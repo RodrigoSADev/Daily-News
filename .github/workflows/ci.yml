@@ -48,7 +48,8 @@ jobs:
         run: pnpm exec playwright install --with-deps
 
       - name: Start Application
-        run: pnpm start
+        run: |
+          pnpm start
 
       - name: Run Playwright tests
         run: pnpm exec playwright test
