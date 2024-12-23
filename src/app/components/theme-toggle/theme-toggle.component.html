@@ -1,9 +1,11 @@
 <button
   (click)="toggleDarkMode()"
   [ngClass]="isDarkMode ? 'btn btn-light' : 'btn btn-dark'"
+  data-test="theme-toggle-button"
 >
   <i
     class="fw-bold fs-5"
     [ngClass]="isDarkMode ? 'bi bi-brightness-high' : 'bi bi-moon-stars'"
+    data-test="theme-toggle-icon"
   ></i>
 </button>
