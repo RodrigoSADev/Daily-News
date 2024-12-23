@@ -9,7 +9,7 @@ export interface IMainNew {
   author: string;
   category: string;
   image: string[];
-  alt: string;
+  alt: string[];
 }
 
 export interface IRecentNew {
