@@ -1,7 +1,9 @@
 <header>
   <nav class="navbar bg-body-tertiary p-3">
     <div class="container">
-      <a routerLink="/" class="navbar-brand fs-3">Daily News</a>
+      <a routerLink="/" class="navbar-brand fs-3" data-test="navbar-brand"
+        >Daily News</a
+      >
       <div class="d-flex gap-3">
         <app-theme-toggle />
         <button
@@ -10,6 +12,7 @@
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasRight"
           aria-controls="offcanvasRight"
+          data-test="menu-button"
         >
           <p class="m-0 p-0">Menu</p>
           <i class="fs-5 bi bi-list"></i>

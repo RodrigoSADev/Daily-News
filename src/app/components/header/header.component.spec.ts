@@ -20,4 +20,23 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render the brand name', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(
+      compiled.querySelector('[data-test="navbar-brand"]')?.textContent
+    ).toContain('Daily News');
+  });
+
+  it('should render the menu button', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(
+      compiled.querySelector('[data-test="menu-button"]')?.textContent
+    ).toContain('Menu');
+  });
+
+  it('should render the theme toggle component', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('app-theme-toggle')).not.toBeNull();
+  });
 });
