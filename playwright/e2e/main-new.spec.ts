@@ -2,7 +2,6 @@ import { expect, test } from '@playwright/test';
 
 test.describe('MainNewComponent', () => {
   test.beforeEach(async ({ page }) => {
-    // Navegue para a página que contém o componente MainNewComponent
     await page.goto('http://localhost:4200/noticia-principal/1');
   });
 
