@@ -49,7 +49,7 @@ jobs:
 
       - name: Start Application
         run: |
-          pnpm start
+          pnpm start &
 
       - name: Run Playwright tests
         run: pnpm exec playwright test
