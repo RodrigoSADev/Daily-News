@@ -2,8 +2,12 @@
   @if (!hasError()) { @if (!isLoading()) {
   <div class="d-flex align-items-center justify-content-between">
     <span></span>
-    <h2 class="text-center m-0 text-wrap">{{ mainNew()?.title }}</h2>
-    <button routerLink="/" class="btn btn-secondary">Voltar</button>
+    <h2 class="text-center m-0 text-wrap" data-test="main-title">
+      {{ mainNew()?.title }}
+    </h2>
+    <button routerLink="/" class="btn btn-secondary" data-test="back-button">
+      Voltar
+    </button>
   </div>
   <hr class="pb-2" />
   <div class="row">
@@ -12,13 +16,15 @@
         [src]="mainNew()!.image[0]"
         class="img-fluid rounded"
         [alt]="mainNew()!.alt[0]"
+        data-test="main-image-0"
       />
     </div>
     <div class="col-xl-6 col-lg-6 order-2 order-lg-2">
       <div class="full-content-paragraph">
-        <h5>{{ mainNew()!.subtitle[0] }}</h5>
+        <h5 data-test="subtitle-0">{{ mainNew()!.subtitle[0] }}</h5>
         <div
           [innerHTML]="getFirstPart(mainNew()!.fullContent) | paragraph"
+          data-test="first-part"
         ></div>
       </div>
     </div>
@@ -26,12 +32,13 @@
   <div class="row mt-5">
     <div class="col-xl-6 col-lg-6 order-4 order-lg-3">
       <div class="full-content-paragraph">
-        <h5>{{ mainNew()!.subtitle[1] }}</h5>
+        <h5 data-test="subtitle-1">{{ mainNew()!.subtitle[1] }}</h5>
         <div
           [innerHTML]="getSecondPart(mainNew()!.fullContent) | paragraph"
+          data-test="second-part"
         ></div>
         <p>
-          <small class="text-body-secondary"
+          <small class="text-body-secondary" data-test="date-author"
             >{{ mainNew()?.date | date : "dd/MM/yyyy" }} -
             {{ mainNew()?.author }}</small
           >
@@ -43,17 +50,19 @@
         [src]="mainNew()!.image[1]"
         class="img-fluid rounded"
         [alt]="mainNew()!.alt[1]"
+        data-test="main-image-1"
       />
     </div>
   </div>
   } @else {
   <div class="row">
     <h2 class="col-11 text-center placeholder-glow">
-      <span class="placeholder col-6"></span>
+      <span class="placeholder col-6" data-test="placeholder-title"></span>
     </h2>
     <button
       class="btn btn-secondary disabled placeholder col-1"
       aria-disabled="true"
+      data-test="placeholder-button"
     ></button>
   </div>
   <hr class="pb-2" />
@@ -63,14 +72,15 @@
         <span
           class="placeholder col-12"
           style="height: 400px; width: 400px; display: block"
+          data-test="placeholder-image-0"
         ></span>
       </div>
     </div>
     <div class="col-xl-6 col-lg-6 order-2 order-lg-2">
       <div class="placeholder-glow full-content-paragraph">
         @for (item of [1, 2, 3, 4]; track item) {
-        <h3 class="placeholder col-11"></h3>
-        <h3 class="placeholder col-10"></h3>
+        <h3 class="placeholder col-11" data-test="placeholder-subtitle"></h3>
+        <h3 class="placeholder col-10" data-test="placeholder-subtitle"></h3>
         }
       </div>
     </div>
@@ -79,8 +89,8 @@
     <div class="col-xl-6 col-lg-6 order-4 order-lg-3">
       <div class="placeholder-glow full-content-paragraph">
         @for (item of [1, 2, 3, 4]; track item) {
-        <h3 class="placeholder col-11"></h3>
-        <h3 class="placeholder col-10"></h3>
+        <h3 class="placeholder col-11" data-test="placeholder-subtitle"></h3>
+        <h3 class="placeholder col-10" data-test="placeholder-subtitle"></h3>
         }
       </div>
     </div>
@@ -89,12 +99,13 @@
         <span
           class="placeholder col-12"
           style="height: 400px; width: 400px; display: block"
+          data-test="placeholder-image-1"
         ></span>
       </div>
     </div>
   </div>
   } } @else {
-  <h2 class="text-center pt-5 pb-3">
+  <h2 class="text-center pt-5 pb-3" data-test="error-message">
     Não foi possíver carregar a notícia principal, por favor, tente novamente
     mais tarde.
   </h2>
