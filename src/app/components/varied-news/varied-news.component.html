@@ -2,16 +2,26 @@
   @if (!hasError()) { @if (!isLoading()) {
   <div class="d-flex align-items-center justify-content-between">
     <span></span>
-    <h2 class="text-center m-0 p-0">Notícias sobre {{ category() }}</h2>
-    <button routerLink="/" class="btn btn-secondary">Voltar</button>
+    <h2 class="text-center m-0 p-0" data-test="varied-news-title">
+      Notícias sobre {{ category() }}
+    </h2>
+    <button
+      routerLink="/"
+      class="btn btn-secondary"
+      data-test="varied-news-back-button"
+    >
+      Voltar
+    </button>
   </div>
   <hr class="pb-2" />
   <div class="row">
     @for (variedNew of variedNews(); track variedNew.id) {
-    <div class="col-xl-6 col-lg-12 mb-5">
+    <div class="col-xl-6 col-lg-12 mb-5" data-test="varied-news-card">
       <div class="card">
         <div class="card-header">
-          <h4 class="text-center my-2">{{ variedNew.title }}</h4>
+          <h4 class="text-center my-2" data-test="varied-news-card-title">
+            {{ variedNew.title }}
+          </h4>
         </div>
         <div class="row g-0">
           <div class="col-xl-6 col-lg-3">
@@ -19,17 +29,23 @@
               [src]="variedNew.image"
               class="img-fluid rounded-bottom"
               [alt]="variedNew.alt"
+              data-test="varied-news-card-image"
             />
           </div>
           <div class="col-xl-6 col-lg-9">
             <div class="card-body">
-              <h5 class="card-text">{{ variedNew.subtitle }}</h5>
+              <h5 class="card-text" data-test="varied-news-card-subtitle">
+                {{ variedNew.subtitle }}
+              </h5>
               <div
                 class="card-text"
                 [innerHTML]="variedNew.fullContent | paragraph"
+                data-test="varied-news-card-full-content"
               ></div>
               <p class="card-text">
-                <small class="text-body-secondary"
+                <small
+                  class="text-body-secondary"
+                  data-test="varied-news-card-author"
                   >{{ variedNew.date | date : "dd/MM/yyyy" }} -
                   {{ variedNew.author }}
                 </small>
@@ -42,7 +58,7 @@
     }
   </div>
   } @else {
-  <div class="row">
+  <div class="row" data-test="varied-news-placeholder-title">
     <h2 class="col-11 text-center placeholder-glow">
       <span class="placeholder col-6"></span>
     </h2>
@@ -52,7 +68,7 @@
     ></button>
   </div>
   <hr class="pb-2" />
-  <div class="row">
+  <div class="row" data-test="varied-news-placeholder-content">
     @for (item of [1, 2, 3, 4]; track item) {
     <div class="col-lg-12 col-xl-6 mb-5">
       <div class="card mb-3">
@@ -89,7 +105,7 @@
     }
   </div>
   } } @else {
-  <h2 class="text-center pt-5 pb-3">
+  <h2 class="text-center pt-5 pb-3" data-test="varied-news-error-message">
     Não foi possíver carregar as notícias variadas, por favor, tente novamente
     mais tarde.
   </h2>
