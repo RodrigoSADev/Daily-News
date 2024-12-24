@@ -27,7 +27,9 @@ test.describe('VariedNewsComponent', () => {
     const cardImages = page
       .locator('[data-test="varied-news-card-image"]')
       .all();
-    (await cardImages).filter((item) => expect(item).toBeVisible());
+    (await cardImages).filter((item) =>
+      expect(item).toBeVisible({ timeout: 2000 })
+    );
   });
 
   test('should display the card subtitles', async ({ page }) => {
