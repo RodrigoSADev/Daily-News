@@ -1,59 +1,80 @@
-# DailyNews
+# Daily News
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.2.
+Daily News é uma aplicação web que fornece as últimas notícias em várias categorias, incluindo tecnologia, política, esportes e ciência. A aplicação é construída usando Angular e inclui testes unitários com Jest e testes end-to-end com Playwright.
 
-## Development server
+## Stack Utilizada no Projeto
 
-To start a local development server, run:
+- Angular
+- TypeScript
+- Jest
+- Playwright
+- Bootstrap
+- Bootstrap Icons
+- PNPM
+- Ngx Carousel Ease
 
-```bash
-ng serve
-```
+## Funcionalidades
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Carrossel de notícias principais
+- Visualização de notícias recentes
+- Visualização de notícias por categoria
+- Alternância de tema (claro/escuro)
+- Pesquisa de previsão do tempo
 
-## Code scaffolding
+## Convencional Commits
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Este projeto segue a especificação de [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). Aqui estão alguns exemplos de mensagens de commit:
 
-```bash
-ng generate component component-name
-```
+- `feat: adiciona nova funcionalidade`
+- `fix: corrige um bug`
+- `refactor: refatoração de código`
+- `test: adiciona ou corrige testes`
+- `chore: atualiza tarefas de build, configurações de CI, etc`
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## CI/CD
 
-```bash
-ng generate --help
-```
+Este projeto utiliza GitHub Actions para CI/CD. O pipeline está configurado para executar os testes unitários com Jest e os testes end-to-end com Playwright. Após a execução dos testes, o projeto é implantado automaticamente no Vercel.
 
-## Building
+O arquivo de configuração do GitHub Actions pode ser encontrado em `.github/workflows/ci.yml`.
 
-To build the project run:
+## Instalação
 
-```bash
-ng build
-```
+Para instalar e executar o projeto localmente, siga estas etapas:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+1. Clone o repositório:
 
-## Running unit tests
+   ```bash
+   git clone https://github.com/seu-usuario/daily-news.git
+   cd daily-news
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+2. Instale as dependências:
 
-```bash
-ng test
-```
+   ```bash
+   npm install -g pnpm
+   pnpm install
 
-## Running end-to-end tests
+3. Inicie o servidor de desenvolvimento:
 
-For end-to-end (e2e) testing, run:
+   ```bash
+   pnpm start
 
-```bash
-ng e2e
-```
+4. Abra o navegador e navegue para ``http://localhost:4200/``.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-## Additional Resources
+## Testes
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Testes Unitários
+Para executar testes unitários com o Jest, use o seguinte comando:
+
+   ```bash
+   pnpm start
+  ```
+![Captura de tela de 2024-12-23 17-15-27](https://github.com/user-attachments/assets/898f0456-93ad-412c-970b-cd56b93af305)
+
+### Testes End-to-End
+Para testes end-to-end (E2E) com Playwright, use:
+
+   ```bash
+   npx playwright test --ui 
+  ```
+![Captura de tela de 2024-12-24 10-50-45](https://github.com/user-attachments/assets/813bce05-e822-4a3f-94d9-443c7a100b75)
