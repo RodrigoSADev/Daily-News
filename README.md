@@ -67,7 +67,7 @@ Para instalar e executar o projeto localmente, siga estas etapas:
 Para executar testes unitários com o Jest, use o seguinte comando:
 
    ```bash
-   pnpm start
+   pnpm test
   ```
 ![Captura de tela de 2024-12-23 17-15-27](https://github.com/user-attachments/assets/898f0456-93ad-412c-970b-cd56b93af305)
 
